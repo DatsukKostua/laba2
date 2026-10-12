@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4f5ef">
+    <meta
+      name="description"
+      content="Оформіть замовлення на кімнатні рослини в крамниці «Зелена кімната»."
+    >
+    <title>Оформлення замовлення — Зелена кімната</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Зелена кімната — на початок сторінки">
+        <span class="brand-mark" aria-hidden="true">З</span>
+        <span>зелена кімната</span>
+      </a>
+      <span class="header-note">Рослини, яким добре вдома</span>
+    </header>
+
+    <main id="top" class="page-shell">
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">Крамниця кімнатних рослин</p>
+        <h1 id="page-title">Зробіть простір трішки зеленішим</h1>
+        <p>Оберіть рослину, спосіб доставки — і ми підготуємо її до подорожі.</p>
+      </section>
+
+      <div class="checkout-layout">
+        <form id="order-form" class="order-card" novalidate>
+          <section class="form-section" aria-labelledby="plant-heading">
+            <div class="section-heading">
+              <span class="step-number" aria-hidden="true">01</span>
+              <div>
+                <h2 id="plant-heading">Ваш зелений вибір</h2>
+                <p>Оберіть рослину та кількість.</p>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="product">Рослина або набір <span class="required-mark" aria-hidden="true">*</span></label>
+              <select id="product" name="product" required aria-describedby="product-error">
+                <option value="">Оберіть зі списку</option>
+                <option value="monstera" data-name="Монстера деліціоза" data-price="890">Монстера деліціоза — 890 грн</option>
+                <option value="ficus" data-name="Фікус еластика" data-price="760">Фікус еластика — 760 грн</option>
+                <option value="succulent" data-name="Набір сукулентів" data-price="420">Набір сукулентів — 420 грн</option>
+                <option value="repotting" data-name="Набір для пересадки" data-price="350">Набір для пересадки — 350 грн</option>
+              </select>
+              <span class="field-error" id="product-error"></span>
+            </div>
+
+            <div class="field quantity-field">
+              <label for="quantity">Кількість</label>
+              <input
+                id="quantity"
+                name="quantity"
+                type="number"
+                min="1"
+                max="10"
+                step="1"
+                value="1"
+                required
+                aria-describedby="quantity-hint quantity-error"
+              >
+              <small id="quantity-hint" class="field-hint">Від 1 до 10 одиниць одного товару.</small>
+              <span class="field-error" id="quantity-error"></span>
+            </div>
+          </section>
+
+          <section class="form-section" aria-labelledby="buyer-heading">
+            <div class="section-heading">
+              <span class="step-number" aria-hidden="true">02</span>
+              <div>
+                <h2 id="buyer-heading">Контактні дані</h2>
+                <p>Ці дані будуть у підсумку вашого замовлення.</p>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="customer-name">Ваше ім’я <span class="required-mark" aria-hidden="true">*</span></label>
+              <input
+                id="customer-name"
+                name="customerName"
+                type="text"
+                autocomplete="name"
+                minlength="2"
+                maxlength="60"
+                required
+                placeholder="Наприклад, Олена"
+                aria-describedby="customer-name-error"
+              >
+              <span class="field-error" id="customer-name-error"></span>
+            </div>
+
+            <div class="field">
+              <label for="email">Електронна пошта <span class="required-mark" aria-hidden="true">*</span></label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+                placeholder="olena@example.com"
+                aria-describedby="email-error"
+              >
+              <span class="field-error" id="email-error"></span>
+            </div>
+
+            <div class="field">
+              <label for="phone">Телефон <span class="optional-mark">(необов’язково)</span></label>
+              <input
+                id="phone"
+                name="phone"
+                type="tel"
+                autocomplete="tel"
+                placeholder="+380 67 123 45 67"
+                aria-describedby="phone-hint phone-error"
+              >
+              <small id="phone-hint" class="field-hint">Зателефонуємо, якщо виникне питання щодо доставки.</small>
+              <span class="field-error" id="phone-error"></span>
+            </div>
+          </section>
+
+          <section class="form-section" aria-labelledby="delivery-heading">
+            <div class="section-heading">
+              <span class="step-number" aria-hidden="true">03</span>
+              <div>
+                <h2 id="delivery-heading">Як передати замовлення?</h2>
+                <p>Для кур’єра або поштомата знадобиться адреса.</p>
+              </div>
+            </div>
+
+            <fieldset class="field delivery-options" data-error="delivery-error" aria-describedby="delivery-error">
+              <legend>Спосіб отримання <span class="required-mark" aria-hidden="true">*</span></legend>
+              <label class="choice-card" for="delivery-courier">
+                <input id="delivery-courier" type="radio" name="delivery" value="courier">
+                <span class="choice-copy"><strong>Кур’єр</strong><small>До дверей · 120 грн</small></span>
+              </label>
+              <label class="choice-card" for="delivery-locker">
+                <input id="delivery-locker" type="radio" name="delivery" value="locker">
+                <span class="choice-copy"><strong>Поштомат</strong><small>Заберіть у зручний час · 80 грн</small></span>
+              </label>
+              <label class="choice-card" for="delivery-pickup">
+                <input id="delivery-pickup" type="radio" name="delivery" value="pickup">
+                <span class="choice-copy"><strong>Самовивіз</strong><small>Київ, вул. Зелена, 12 · безкоштовно</small></span>
+              </label>
+              <span class="field-error" id="delivery-error"></span>
+            </fieldset>
+
+            <div class="field" id="address-field" hidden>
+              <label id="address-label" for="address">Адреса доставки <span class="required-mark" aria-hidden="true">*</span></label>
+              <input
+                id="address"
+                name="address"
+                type="text"
+                autocomplete="street-address"
+                minlength="5"
+                maxlength="120"
+                aria-describedby="address-hint address-error"
+              >
+              <small id="address-hint" class="field-hint"></small>
+              <span class="field-error" id="address-error"></span>
+            </div>
+          </section>
+
+          <section class="form-section form-section-last" aria-labelledby="extras-heading">
+            <div class="section-heading">
+              <span class="step-number" aria-hidden="true">04</span>
+              <div>
+                <h2 id="extras-heading">Останні штрихи</h2>
+                <p>Можна пропустити — це необов’язково.</p>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="promo">Промокод <span class="optional-mark">(необов’язково)</span></label>
+              <input
+                id="promo"
+                name="promo"
+                type="text"
+                autocomplete="off"
+                maxlength="30"
+                placeholder="Наприклад, STUDENT"
+                aria-describedby="promo-hint promo-error"
+              >
+              <small id="promo-hint" class="field-hint">Введіть STUDENT, щоб отримати знижку 10% на товари.</small>
+              <span class="field-error" id="promo-error"></span>
+            </div>
+
+            <div class="field">
+              <label for="comment">Коментар до замовлення <span class="optional-mark">(необов’язково)</span></label>
+              <textarea
+                id="comment"
+                name="comment"
+                rows="3"
+                maxlength="240"
+                placeholder="Наприклад, залишити біля дверей"
+                aria-describedby="comment-count"
+              ></textarea>
+              <small class="field-hint"><span id="comment-count">0</span> / 240 символів</small>
+            </div>
+
+            <label class="terms-choice" for="terms">
+              <input id="terms" name="terms" type="checkbox" required aria-describedby="terms-error">
+              <span>Підтверджую дані замовлення <span class="required-mark" aria-hidden="true">*</span></span>
+            </label>
+            <span class="field-error terms-error" id="terms-error"></span>
+          </section>
+
+          <div class="form-actions">
+            <button class="button button-primary" type="submit">Оформити замовлення</button>
+            <button class="button button-secondary" type="reset">Очистити форму</button>
+          </div>
+        </form>
+
+        <aside class="order-aside" aria-label="Вартість і результат замовлення">
+          <section class="price-card" aria-labelledby="price-heading">
+            <div class="price-card-heading">
+              <span class="price-icon" aria-hidden="true">✳</span>
+              <div>
+                <p class="eyebrow">Попередній розрахунок</p>
+                <h2 id="price-heading">Вартість</h2>
+              </div>
+            </div>
+            <dl class="price-breakdown" aria-live="polite">
+              <div><dt>Товари</dt><dd id="items-price">0 грн</dd></div>
+              <div><dt>Доставка</dt><dd id="delivery-price">0 грн</dd></div>
+              <div class="discount-row"><dt>Знижка</dt><dd id="discount-price">−0 грн</dd></div>
+            </dl>
+            <div class="price-total"><span>Разом</span><strong id="total-price">0 грн</strong></div>
+            <p class="price-note">Остаточну суму можна перевірити перед оформленням.</p>
+          </section>
+
+          <section id="order-summary" class="summary-card" aria-labelledby="summary-heading" hidden>
+            <div class="summary-success">
+              <span class="success-mark" aria-hidden="true">✓</span>
+              <div>
+                <p class="eyebrow">Готово</p>
+                <h2 id="summary-heading" tabindex="-1">Замовлення оформлено!</h2>
+              </div>
+            </div>
+            <p class="summary-lead">Перевірте деталі вашого замовлення:</p>
+            <dl id="summary-details" class="summary-details"></dl>
+            <p class="summary-reference">Це демонстраційна форма: замовлення збережене лише на цій сторінці.</p>
+            <button class="button button-secondary summary-edit" id="edit-order" type="button">Повернутися до форми</button>
+          </section>
+
+          <p class="aside-promise"><span aria-hidden="true">♡</span> Дбайливо пакуємо кожну рослину.</p>
+        </aside>
+      </div>
+
+      <footer class="site-footer">Зелена кімната <span>·</span> рослини для вашого простору</footer>
+    </main>
+  </body>
+</html>
